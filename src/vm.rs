@@ -1,16 +1,16 @@
-enum Instruction {
+pub enum Instruction {
     Add,
     Sub,
     Mult,
     Div,
 }
 
-struct Vm {
+pub struct Vm {
     stack: Vec<i32>,
 }
 
 impl Vm {
-    fn new() -> Vm {
+    pub fn new() -> Vm {
         Vm { stack: Vec::new() }
     }
 
@@ -18,7 +18,6 @@ impl Vm {
         self.stack.push(value);
     }
 
-    // The pop method should return an Option<i32> to handle the case when the stack is empty.
     pub fn pop(&mut self) -> Option<i32> {
         self.stack.pop()
     }
@@ -53,7 +52,6 @@ impl Vm {
             Instruction::Sub => self.subtract(),
             Instruction::Mult => self.multiply(),
             Instruction::Div => self.divide(),
-            _ => panic!("Instruction not defined"),
         }
     }
 }
